@@ -11,3 +11,12 @@
 - Depth First Traversal (Refactor from BFT)
 - BFS Talk and pseudocode
 - Wrap up
+
+## Day 2
+
+- BFS/DFS solution
+- How to Solve Any Graph Problem
+- 5 Min Break
+- Word Ladders Challenge
+- 5 Min Break
+- Conclusions and Wrap Up
