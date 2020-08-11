@@ -16,23 +16,24 @@ letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n',
 def get_neighbors(word):
     neighbors = []
     # turn our word in to a letters list
-    string_word = list(word)
+    letters_list = list(word)
 
     # for each letters
-    for i in range(len(string_word)):
+    for i in range(len(letters_list)): # O(n)
         # swap each letter
-        for letter in letters:
-            temp_word = list(string_word)
+        for letter in letters: # O(1)
+            temp_word = list(letters_list)
             temp_word[i] = letter
             w = "".join(temp_word)
             if w != word and w in word_set:
                 neighbors.append(w)
     return neighbors
 
-# BFS with path
+# BFS with path (Search)
 def find_ladders(begin_word, end_word):
     q = Queue()
     visited = set()
+    # begin_word = begin_word.lower()
     q.enqueue([begin_word])
     while q.size() > 0:
         path = q.dequeue()
@@ -48,3 +49,7 @@ def find_ladders(begin_word, end_word):
                 path_copy.append(neighbor)
                 q.enqueue(path_copy)
 
+print(find_ladders("sAil", "boat"))  # ['sail', 'bail', 'boil', 'boll', 'bolt', 'boat']
+print(find_ladders("hit", "cog"))  # ['hit', 'hot', 'cot', 'cog']
+print(find_ladders("hungry", "happy"))  # None
+print(find_ladders("abel", "ewes")) # ['abel', 'axel', 'axes', 'exes', 'ewes']
