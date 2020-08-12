@@ -27,5 +27,4 @@
 - Island Counter problem
 - 10 min break
 - Randomness and social networks
-- Brief notes on project
-- Lunchtime!
+- Wrapup
