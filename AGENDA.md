@@ -20,3 +20,12 @@
 - Word Ladders Challenge
 - 5 Min Break
 - Conclusions and Wrap Up
+
+## Day 3
+
+- Earliest Ancestor Solution
+- Island Counter problem
+- 10 min break
+- Randomness and social networks
+- Brief notes on project
+- Lunchtime!
