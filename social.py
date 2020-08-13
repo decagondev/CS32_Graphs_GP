@@ -1,4 +1,6 @@
 import random
+from queue import Queue
+
 
 class User:
     def __init__(self, name):
@@ -85,9 +87,21 @@ class SocialGraph:
         return visited
 
 
+
+# if __name__ == '__main__':
+#     sg = SocialGraph()
+#     sg.populate_graph(10, 2)
+#     print(sg.friendships)
+#     connections = sg.get_all_social_paths(1)
+#     print(connections)
+
+
 if __name__ == '__main__':
     sg = SocialGraph()
-    sg.populate_graph(10, 2)
-    print(sg.friendships)
+    sg.populate_graph(1000, 5)
     connections = sg.get_all_social_paths(1)
-    print(connections)
+    print(f"Users in extended social network: {len(connections) - 1}")
+    total_social_paths = 0
+    for user_id in connections:
+        total_social_paths += len(connections[user_id])
+    print(f"Avg length of social path: {total_social_paths / len(connections)}")
