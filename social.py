@@ -88,20 +88,37 @@ class SocialGraph:
 
 
 
-# if __name__ == '__main__':
-#     sg = SocialGraph()
-#     sg.populate_graph(10, 2)
-#     print(sg.friendships)
-#     connections = sg.get_all_social_paths(1)
-#     print(connections)
-
-
 if __name__ == '__main__':
     sg = SocialGraph()
-    sg.populate_graph(1000, 5)
+    sg.populate_graph(10, 2)
+    print(sg.friendships)
     connections = sg.get_all_social_paths(1)
-    print(f"Users in extended social network: {len(connections) - 1}")
-    total_social_paths = 0
-    for user_id in connections:
-        total_social_paths += len(connections[user_id])
-    print(f"Avg length of social path: {total_social_paths / len(connections)}")
+    print(connections)
+
+# # Test at scale
+# if __name__ == '__main__':
+#     sg = SocialGraph()
+#     sg.populate_graph(1000, 5)
+#     connections = sg.get_all_social_paths(1)
+#     print(f"Users in extended social network: {len(connections) - 1}")
+#     total_social_paths = 0
+#     for user_id in connections:
+#         total_social_paths += len(connections[user_id])
+#     print(f"Avg length of social path: {total_social_paths / len(connections)}")
+
+# # Random Sampling
+# if __name__ == '__main__':
+#     sg = SocialGraph()
+#     start_time = time.time()
+#     num_users = 2000
+#     avg_friendships = 1999
+#     start_time = time.time()
+#     sg.populate_graph_linear(num_users, avg_friendships)
+#     # print(sg.friendships)
+#     end_time = time.time()
+#     print (f"Linear runtime: {end_time - start_time} seconds")
+#     sg = SocialGraph()
+#     start_time = time.time()
+#     sg.populate_graph(num_users, avg_friendships)
+#     end_time = time.time()
+#     print (f"Quadratic runtime: {end_time - start_time} seconds")

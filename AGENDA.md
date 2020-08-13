@@ -28,3 +28,15 @@
 - 10 min break
 - Randomness and social networks
 - Wrapup
+
+## Day 4
+
+- get_all_social_paths
+- do testing at scale
+- 5 min break
+- random sampling - refactor add friendship
+- Populate Graph Linear version
+- check the collisions and dense / sparsity
+- 5 min break
+- Intro to the Maze Challenge (2 days of sprint)
+- Lunchtime!
