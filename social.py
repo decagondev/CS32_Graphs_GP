@@ -82,29 +82,43 @@ class SocialGraph:
         extended network with the shortest friendship path between them.
         The key is the friend's ID and the value is the path.
         """
+        q = Queue()
         visited = {}  # Note that this is a dictionary, not a set
-        # !!!! IMPLEMENT ME
+        q.enqueue([user_id])
+
+        while q.size() > 0:
+            path = q.dequeue()
+            v = path[-1]
+
+            if v not in visited:
+                visited[v] = path
+
+                for friend in self.friendships[v]:
+                    path_copy = list(path)  # path.copy()
+                    path_copy.append(friend)
+                    q.enqueue(path_copy)
+
         return visited
 
 
 
-if __name__ == '__main__':
-    sg = SocialGraph()
-    sg.populate_graph(10, 2)
-    print(sg.friendships)
-    connections = sg.get_all_social_paths(1)
-    print(connections)
-
-# # Test at scale
 # if __name__ == '__main__':
 #     sg = SocialGraph()
-#     sg.populate_graph(1000, 5)
+#     sg.populate_graph(10, 2)
+#     print(sg.friendships)
 #     connections = sg.get_all_social_paths(1)
-#     print(f"Users in extended social network: {len(connections) - 1}")
-#     total_social_paths = 0
-#     for user_id in connections:
-#         total_social_paths += len(connections[user_id])
-#     print(f"Avg length of social path: {total_social_paths / len(connections)}")
+#     print(connections)
+
+# Test at scale
+if __name__ == '__main__':
+    sg = SocialGraph()
+    sg.populate_graph(1000, 300)
+    connections = sg.get_all_social_paths(1)
+    print(f"Users in extended social network: {len(connections) - 1}")
+    total_social_paths = 0
+    for user_id in connections:
+        total_social_paths += len(connections[user_id])
+    print(f"Avg length of social path: {total_social_paths / len(connections)}")
 
 # # Random Sampling
 # if __name__ == '__main__':
